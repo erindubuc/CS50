@@ -10,8 +10,8 @@ int exponr(int, int);
 
 int main()
 {
-    printf("Recursive Answer: %i\n", expo(3, 6));
-    printf("Non-recursive Answer: %i\n", exponr(3, 6));
+    printf("Recursive Answer: %i\n", expo(9, 9));
+    printf("Non-recursive Answer: %i\n", exponr(9, 9));
 	return 0;
 }
 
@@ -37,18 +37,35 @@ int expo (int base, int expon)
     //     return 1;
     // }
 
-    // Return result
+    // Return result--> recursion invoking itself
     return (base * expo(base, expon - 1));
 }
 
-int power = 1;  // variable to store result of power in
+
 //  Non-recursive
 int exponr(int base, int expon)
 {
+    // variable to store result
+    int result = 1;
+
+     // Base case num = 0
+    if (base == 0)
+    {
+        return 0;
+    }
+
+    // Base case if base = 1, result will always be 1
+    // Base case if expon = 0, result will always be 1
+    if (base == 1 || expon == 0)
+    {
+        return 1;
+    }
+
 
     for (int i = 0; i < expon; i++)
     {
-        power = power * base;
+        // power = power * base;
+        result *= base;
     }
-    return power;
+    return result;
 }
