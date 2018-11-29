@@ -20,16 +20,13 @@ int expo (int base, int expon)
 {
     // Base case num = 0
     if (base == 0)
-    {
         return 0;
-    }
 
     // Base case if base = 1, result will always be 1
     // Base case if expon = 0, result will always be 1
     if (base == 1 || expon == 0)
-    {
         return 1;
-    }
+
 
     // Base case => num to the power 0 = 1
     // if (power == 0)
@@ -50,22 +47,16 @@ int exponr(int base, int expon)
 
      // Base case num = 0
     if (base == 0)
-    {
         return 0;
-    }
 
     // Base case if base = 1, result will always be 1
     // Base case if expon = 0, result will always be 1
     if (base == 1 || expon == 0)
-    {
         return 1;
-    }
-
 
     for (int i = 0; i < expon; i++)
-    {
         // power = power * base;
         result *= base;
-    }
+
     return result;
 }
