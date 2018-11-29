@@ -45,14 +45,9 @@ int exponr(int base, int expon)
     // variable to store result
     int result = 1;
 
-     // Base case num = 0
-    if (base == 0)
-        return 0;
-
-    // Base case if base = 1, result will always be 1
-    // Base case if expon = 0, result will always be 1
-    if (base == 1 || expon == 0)
-        return 1;
+    // If base is <= 1, result will always be the base
+    if (base <= 1)
+        return base;
 
     for (int i = 0; i < expon; i++)
         // power = power * base;
