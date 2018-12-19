@@ -15,17 +15,4 @@ bool load(const char *dictionary);
 unsigned int size(void);
 bool unload(void);
 
-// define node structure
-typedef struct node
-{
-    bool is_word;
-    // node pointers
-    struct node* children[27];
-}
-node;
-
-// creates the root node (initialized to NULL)
-struct node *root;
-
-
 #endif // DICTIONARY_H
