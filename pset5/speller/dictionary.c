@@ -72,8 +72,6 @@ bool load(const char *dictionary)
     // create way to traverse from root
     root = getNode(trav);
     trav = root;
-    // create pointer from trav to traverse down rest of word
-    node *new_trav;
 
     // set wordsTotal to 0 to begin tracking size of trie
     wordsTotal = 0;
@@ -95,10 +93,6 @@ bool load(const char *dictionary)
     // using int c allows us to use character at a position
     for (char c = fgetc(dict); c != EOF; c = fgetc(dict))
     {
-
-        // pointer reference to move down trie from root
-        new_trav = trav;
-
         // if c is not the end of a line - reading within word
         if (c != '\n')
         {
@@ -112,7 +106,6 @@ bool load(const char *dictionary)
                 }
 
                 // if letter is there within the node, move on to it
-                new_trav = trav->children[index];
                 trav = trav->children[index];
             }
         }
@@ -129,11 +122,9 @@ bool load(const char *dictionary)
             // add new word to total words in dictionary
             wordsTotal++;
         }
-
     }
 
     fclose(dict);
-
     return true;
 }
 
@@ -148,7 +139,6 @@ bool unload(void)
 {
     // free root node
     freeNode(root);
-
     return true;
 }
 
