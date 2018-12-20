@@ -23,8 +23,8 @@ node *getNode(node *newNode);
 void freeNode(node *travel);
 
 // to get index of letter within children[index]
-    // if c is an apostrophe, if c is lowercase, else if c is uppercase
-int getChildIndex (char c)
+// if c is an apostrophe, if c is lowercase, else if c is uppercase
+int getChildIndex(char c)
 {
     if (c == '\'')
         return 26;
@@ -57,13 +57,13 @@ bool check(const char *word)
             trav = trav->children[index];
     }
 
-        // if true return true
-        if (trav->is_word == true)
-            return true;
+    // if true return true
+    if (trav->is_word == true)
+        return true;
 
-        else
-            // if false then it's an invalid word
-            return false;
+    // if false then it's an invalid word
+    else
+        return false;
 }
 
 // Loads dictionary into memory, returning true if successful else false
@@ -112,7 +112,6 @@ bool load(const char *dictionary)
 
         // if character being read in is the \n for newline
         else
-        // if (c == '\n')
         {
             trav->is_word = true;
 

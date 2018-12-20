@@ -52,3 +52,6 @@ void freeNode(node *travel)
     }
     free(travel);
 }
+
+// help from: https://www.techiedelight.com/trie-implementation-insert-search-delete/
+// https://medium.com/basecs/trying-to-understand-tries-3ec6bede0014
