@@ -43,8 +43,7 @@ def main():
             # to hold current alpha character of key as an integer
             k = (ord(key[j % len(key)].upper()) - 65)
 
-            # get cipher's uppercase letter ascii integer
-            # c = (((ord(p[i]) - ord('A')) + k) % 26) + 65
+            # get cipher's uppercase letter
             c = (p + k) % 26
 
             # increment loop by 1
@@ -56,17 +55,16 @@ def main():
             print(chr(c + 65), end="")
             continue
 
-         # If char is uppercase, offset ascii by 65
+         # If char is uppercase, offset ascii by 97
         if c.islower():
 
             # to get int index between 0-25 of plaintext character
             p = ord(c) - 97
 
-            # to get int index between 0-25 of key character -> in uppercase
+            # to get int index between 0-25 of key character -> in lowercase
             k = (ord(key[j % len(key)].lower()) - 97)
 
-            # get cipher's uppercase letter ascii integer
-            # c = (((ord(p[i]) - ord('A')) + k) % 26) + 65
+            # get cipher's lowercase letter
             c = (p + k) % 26
 
             # increment loop by 1
