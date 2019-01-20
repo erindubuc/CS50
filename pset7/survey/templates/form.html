@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" method="post" class="needs-validation" novalidate>
+        <!-- Name and email input text boxes -->
+        <div class="form-row">
+            <label for="validationCustom01" class="mr-sm-2">Name:</label>
+            <div class="col-md-5">
+                <input
+                type="text"
+                class="form-control mb-2 mr-sm-2"
+                id="validationCustom01"
+                placeholder="Enter name"
+                >
+                <div class="invalid-feedback">
+                    Please enter your name.
+                </div>
+            </div>
+            <!-- Email input text box -->
+            <label for="validationCustom02" class="mr-sm-2">Email:</label>
+            <div class="col-md-5">
+                <input
+                type="text"
+                class="form-control mb-3 mr-sm-2"
+                id="validationCustom02"
+                placeholder="Enter email">
+                <div class="invalid-feedback">
+                    Please enter your email address.
+                </div>
+            </div>
+        </div>
+
+        <!-- Radio buttons for Day or Evening -->
+        <div class="custom-control custom-radio">
+            <input
+                type="radio"
+                id="customRadio1"
+                name="customRadio"
+                class="custom-control-input"
+                required
+                >
+            <label
+            class="custom-control-label mb-3"
+            for="customRadio1">
+                Day Student
+            </label>
+        </div>
+        <div class="custom-control custom-radio">
+            <input
+                type="radio"
+                id="customRadio2"
+                name="customRadio"
+                class="custom-control-input"
+                required
+                >
+            <label class="custom-control-label mb-3"
+            for="customRadio2">
+                Evening Student
+            </label>
+        </div>
+
+        <!-- Favorite language/ language of chioce so far -->
+        <div class="form-group">
+            <label for="language" class="mb-3">
+                What is your favorite programming language to use so far?
+            </label>
+            <select
+            class="form-control"
+            id="language"
+            required
+                >
+                <option selected class="disabled">Choose one...</option>
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="c">C</option>
+                <option value="csharp">C#</option>
+            </select>
+            <div class="invalid-feedback">
+                Please choose one.
+            </div>
+        </div>
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-info mt-3" type="submit">Submit</button>
+
+    </form>
+
+    <script>
+
+        /* TODO */
+
+    </script>
+
+{% endblock %}
