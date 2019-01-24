@@ -6,85 +6,87 @@
     <h1 class="mb-3">Form</h1>
 
     <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
-    <form action="/form" method="post" class="needs-validation" novalidate>
+    <form id="post_form" action="/form" method="post" class="needs-validation" novalidate>
+
         <!-- Name and email input text boxes -->
+        <!-- Name input box -->
         <div class="form-row">
             <label for="validationCustom01" class="mr-sm-2">Name:</label>
             <div class="col-md-5">
                 <input
                 type="text"
+                name="name"
                 class="form-control mb-2 mr-sm-2"
                 id="validationCustom01"
                 placeholder="Enter name"
-                >
+                required>
                 <div class="invalid-feedback">
                     Please enter your name.
                 </div>
             </div>
+
             <!-- Email input text box -->
             <label for="validationCustom02" class="mr-sm-2">Email:</label>
             <div class="col-md-5">
                 <input
                 type="text"
+                name="email"
                 class="form-control mb-3 mr-sm-2"
                 id="validationCustom02"
-                placeholder="Enter email">
+                placeholder="Enter email"
+                required>
                 <div class="invalid-feedback">
                     Please enter your email address.
                 </div>
             </div>
         </div>
 
-        <!-- Radio buttons for Day or Evening -->
-        <div class="custom-control custom-radio">
+        <!-- Radio buttons for classTime = Daytime or Evening -->
+        <div class="form-check needs-validation">
             <input
                 type="radio"
-                id="customRadio1"
-                name="customRadio"
-                class="custom-control-input"
-                required
-                >
-            <label
-            class="custom-control-label mb-3"
-            for="customRadio1">
+                id="Daytime"
+                name="classTime"
+                value="Daytime"
+                class="form-check-input"
+                required>
+            <label class="form-check-label mb-3" for="Daytime">
                 Day Student
             </label>
         </div>
-        <div class="custom-control custom-radio">
+        <div class="form-check needs-validation">
             <input
                 type="radio"
-                id="customRadio2"
-                name="customRadio"
-                class="custom-control-input"
-                required
-                >
-            <label class="custom-control-label mb-3"
-            for="customRadio2">
+                id="Evening"
+                name="classTime"
+                value="Evening"
+                class="form-check-input"
+                required>
+            <label class="form-check-label mb-3" for="Evening">
                 Evening Student
             </label>
         </div>
 
-        <!-- Favorite language/ language of chioce so far -->
+        <!-- Favorite language/language of chioce so far -->
         <div class="form-group">
-            <label for="language" class="mb-3">
-                What is your favorite programming language to use so far?
-            </label>
-            <select
-            class="form-control"
-            id="language"
-            required
-                >
-                <option selected class="disabled">Choose one...</option>
-                <option value="javascript">JavaScript</option>
-                <option value="python">Python</option>
-                <option value="c">C</option>
-                <option value="csharp">C#</option>
-            </select>
-            <div class="invalid-feedback">
-                Please choose one.
+            <div class="col-md-5">
+                <label for="language" class="mb-3">
+                    What is your favorite programming language to use so far?
+                </label>
+                <select class="form-control" name="language" required>
+                    <option selected disabled value>Choose One</option>
+                    <option value="Javascript">JavaScript</option>
+                    <option value="Python">Python</option>
+                    <option value="C">C</option>
+                    <option value="Csharp">C#</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please choose one.
+                </div>
             </div>
         </div>
 
+        <!-- Submit button -->
         <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
         <button class="btn btn-info mt-3" type="submit">Submit</button>
 
@@ -92,7 +94,23 @@
 
     <script>
 
-        /* TODO */
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
 
     </script>
 
